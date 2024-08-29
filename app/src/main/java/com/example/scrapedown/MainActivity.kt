@@ -1,12 +1,17 @@
 package com.example.scrapedown
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.scrapedown.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    // Declare the binding variable at the class level
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -15,6 +20,17 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
+        // Setting the content view with the binding root
+        setContentView(binding.root)
+
+        binding.convertButton.setOnClickListener {
+            binding.apply {
+                scrapedTextView.visibility = View.VISIBLE
+            }
         }
     }
 }

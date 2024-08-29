@@ -27,14 +27,14 @@
             android:text="Enter URL" />
 
         <Button
-            android:id="@+id/buttonConvert"
+            android:id="@+id/convertButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Convert" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/scrapedTextView"
             android:layout_width="198dp"
             android:layout_height="108dp"
             android:layout_marginTop="20dp"
