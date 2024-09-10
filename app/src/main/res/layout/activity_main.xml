@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,26 +20,47 @@
         <EditText
             android:id="@+id/editUrlText"
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:ems="10"
             android:inputType="text"
-            android:text="Enter URL" />
+            android:text="Enter URL"
+            app:layout_constraintBottom_toTopOf="@+id/convertButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/convertButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Convert" />
+            android:layout_marginBottom="16dp"
+            android:text="Convert"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editUrlText" />
 
-        <TextView
-            android:id="@+id/scrapedTextView"
-            android:layout_width="198dp"
-            android:layout_height="108dp"
-            android:layout_marginTop="20dp"
-            android:visibility="gone"
-            android:text="Previewing the scraped and markdownified text I guess" />
-    </LinearLayout>
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/scraped_text_maxHeight"
+            android:layout_margin="@dimen/scraped_text_margin"
+            android:maxHeight="@dimen/scraped_text_maxHeight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/convertButton">
+
+            <TextView
+                android:id="@+id/scrapedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Previewing the scraped and markdownified text I guess"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
